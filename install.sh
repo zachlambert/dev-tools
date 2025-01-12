@@ -22,4 +22,4 @@ fi
 
 # ln -s nvim $nvim_dir
 echo "Creating symlink to wezterm config at $wezterm_dir"
-ln -s wezterm $wezterm_dir
+ln -s "$(pwd)/wezterm" $wezterm_dir

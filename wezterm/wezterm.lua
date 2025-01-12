@@ -1,15 +1,10 @@
 local wezterm = require('wezterm')
 local config = wezterm.config_builder()
+local docker = require('docker')
+local commands = require('commands')
 
-local configs = {
-    require('keymaps'),
-    require('theme'),
-}
-
-for _, configs_item in ipairs(configs) do
-    for key, value in pairs(configs_item) do
-        config[key] = value
-    end
-end
+require('theme').apply(config)
+require('keymaps').apply(config)
+require('commands').apply(config)
 
 return config

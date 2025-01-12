@@ -1,8 +1,8 @@
 local wezterm = require('wezterm')
 
-local docker = {}
+local exports = {}
 
-function docker.get_containers()
+function exports.get_containers()
   local docker_list = {}
   local success, stdout, stderr = wezterm.run_child_process {
     'docker',
@@ -20,16 +20,7 @@ function docker.get_containers()
   return docker_list
 end
 
-function docker.get_containers_list()
-    local list = docker_list()
-    local str = ''
-    for id, name in pairs(list) do
-        str = str..name..'\n'
-    end
-    return str
-end
-
-function make_docker_label_func(id)
+function exports.make_docker_label_func(id)
   return function(name)
     local success, stdout, stderr = wezterm.run_child_process {
       'docker',
@@ -47,7 +38,7 @@ function make_docker_label_func(id)
   end
 end
 
-function make_docker_fixup_func(id)
+function exports.make_docker_fixup_func(id)
   return function(cmd)
     cmd.args = cmd.args or { '/bin/bash' }
     local wrapped = {
@@ -65,19 +56,4 @@ function make_docker_fixup_func(id)
   end
 end
 
-function compute_exec_domains()
-  local exec_domains = {}
-  for id, name in pairs(docker.get_list()) do
-    table.insert(
-      exec_domains,
-      wezterm.exec_domain(
-        'docker:' .. name,
-        make_docker_fixup_func(id),
-        make_docker_label_func(id)
-      )
-    )
-  end
-  return exec_domains
-end
-
-return docker
+return exports

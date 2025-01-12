@@ -1,15 +1,17 @@
 local wezterm = require('wezterm')
-local config = wezterm.config_builder()
 
--- config.color_scheme = 'One Dark (Gogh)'
-config.color_scheme = 'Afterglow'
+local exports = {}
 
-config.window_background_opacity = 0.92
-config.font = wezterm.font('0xProtoNerdFontMono')
-config.font_size = 13
+function exports.apply(config)
+    config.color_scheme = 'Afterglow'
 
-config.window_decorations = 'NONE'
-config.hide_tab_bar_if_only_one_tab = true
--- config.enable_scroll_bar = true
+    config.window_background_opacity = 0.92
+    config.font = wezterm.font('0xProtoNerdFontMono')
+    config.font_size = 13
 
-return config
+    config.window_decorations = 'NONE'
+    config.hide_tab_bar_if_only_one_tab = true
+    -- config.enable_scroll_bar = true
+end
+
+return exports
