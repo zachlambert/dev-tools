@@ -2,6 +2,22 @@ local wezterm = require('wezterm')
 
 local exports = {}
 
+-- All docker containers are associated with the same 'docker' exec domain
+-- To select different containers, need to update the variable 'docker_container'
+-- - This is because config.exec_domains will only update on re-launching wezterm
+--   even if you reload the config
+-- - Therefore this is the only way to update the list of docker containers
+--   while running
+-- - The drawback is that you cannot select the domain from right-click +tab
+--   since there is no way to set the docker_container variable here
+--   (it will re-use the last set value)
+
+local docker_container = nil
+
+function exports.set_container(name)
+    docker_container = name
+end
+
 function exports.get_containers()
   local docker_list = {}
   local success, stdout, stderr = wezterm.run_child_process {
@@ -20,32 +36,14 @@ function exports.get_containers()
   return docker_list
 end
 
-function exports.make_docker_label_func(id)
-  return function(name)
-    local success, stdout, stderr = wezterm.run_child_process {
-      'docker',
-      'inspect',
-      '--format',
-      '{{.State.Running}}',
-      id,
-    }
-    local running = stdout == 'true\n'
-    local color = running and 'Green' or 'Red'
-    return wezterm.format {
-      { Foreground = { AnsiColor = color } },
-      { Text = 'docker container named ' .. name },
-    }
-  end
-end
-
-function exports.make_docker_fixup_func(id)
+function exports.make_docker_fixup_func()
   return function(cmd)
     cmd.args = cmd.args or { '/bin/bash' }
     local wrapped = {
       'docker',
       'exec',
       '-it',
-      id,
+      docker_container,
     }
     for _, arg in ipairs(cmd.args) do
       table.insert(wrapped, arg)
