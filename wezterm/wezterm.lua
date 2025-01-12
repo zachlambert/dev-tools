@@ -6,5 +6,6 @@ local commands = require('commands')
 require('theme').apply(config)
 require('keymaps').apply(config)
 require('commands').apply(config)
+print(config.exec_domains)
 
 return config

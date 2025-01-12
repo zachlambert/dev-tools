@@ -28,6 +28,7 @@ function exports.apply(config)
         resize_right =      {mods='LEADER', key='L'},
         resize_up =         {mods='LEADER', key='K'},
         resize_down =       {mods='LEADER', key='J'},
+        reload_config =     {mods='LEADER', key='r'},
     }
 
     local actions = {
@@ -47,6 +48,7 @@ function exports.apply(config)
         resize_right =     act{AdjustPaneSize={'Right', 2}},
         resize_up =        act{AdjustPaneSize={'Up', 2}},
         resize_down =      act{AdjustPaneSize={'Down', 2}},
+        reload_config =    act.ReloadConfiguration,
     }
 
     config.keys = {}

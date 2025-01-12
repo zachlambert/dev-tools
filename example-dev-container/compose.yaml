@@ -1,0 +1,13 @@
+services:
+  rust-dev:
+    build:
+      context: .
+      args:
+        USER: ${USER}
+        UID: ${UID}
+        GID: ${GID}
+        SHELL: ${SHELL}
+    image: rust-dev
+    container_name: rust-dev
+    user: ${UID}:${GID}
+    command: "sleep infinity"

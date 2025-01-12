@@ -21,7 +21,7 @@ function exports.spawn_tab_in_domain()
             { Text = text }
         },
         action = wezterm.action_callback(function(window, pane, line)
-            window:perform_action(act.ReloadConfiguration, pane)
+            -- wezterm.reload_configuration()
             for id, name in pairs(docker.get_containers()) do
                 if name==line then
                     print('Valid:'..name)
@@ -36,6 +36,7 @@ function exports.spawn_tab_in_domain()
 end
 
 function exports.apply(config)
+    print('Reloading exec domains')
     config.exec_domains = {}
     for id, name in pairs(docker.get_containers()) do
         table.insert(
