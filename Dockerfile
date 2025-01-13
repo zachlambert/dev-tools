@@ -13,6 +13,7 @@ RUN sudo apt update --fix-missing && sudo apt -y install --no-install-recommends
     cmake \
     unzip \
     curl \
+    libstdc++-12-dev \
     python3-pip \
     python3-venv \
     zsh \

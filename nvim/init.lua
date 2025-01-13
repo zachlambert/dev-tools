@@ -44,4 +44,7 @@ require("lazy").setup({
 	require("plugins.telescope"),
 	{ "sindrets/diffview.nvim" },
 	require("plugins.autosession"),
+	{ "mfussenegger/nvim-dap" },
+	require("plugins.mason_nvim_dap"),
+	require("plugins.nvim_dap_ui"),
 })
