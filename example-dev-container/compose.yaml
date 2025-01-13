@@ -1,5 +1,7 @@
 services:
   rust-dev:
+    network: host
+    ipc: host
     build:
       context: .
       args:
@@ -9,5 +11,5 @@ services:
         SHELL: ${SHELL}
     image: rust-dev
     container_name: rust-dev
-    user: ${UID}:${GID}
+    user: ${USER}
     command: "sleep infinity"

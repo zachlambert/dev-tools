@@ -1,1 +1,0 @@
-/home/zach/dev-tools/dotfiles/.zshrc

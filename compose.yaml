@@ -1,0 +1,16 @@
+services:
+  rust-dev-tools:
+    network_mode: host
+    ipc: host
+    build:
+      context: .
+      args:
+        DEV_IMAGE: rust-dev
+        USER: ${USER}
+        UID: ${UID}
+        GID: ${GID}
+        SHELL: ${SHELL}
+    image: rust-dev-tools
+    container_name: rust-dev-tools
+    user: ${USER}
+    command: "sleep infinity"
