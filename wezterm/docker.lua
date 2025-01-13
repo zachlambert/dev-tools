@@ -38,7 +38,7 @@ end
 
 function exports.make_docker_fixup_func()
 	return function(cmd)
-		cmd.args = cmd.args or { "/bin/bash" }
+		cmd.args = cmd.args or { os.getenv("SHELL") }
 		local wrapped = {
 			"docker",
 			"exec",

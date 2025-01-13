@@ -14,7 +14,7 @@ install_neovim_config() {
     fi
 
     echo "Creating symlink to nvim config at $nvim_dir"
-    ln -s nvim $nvim_dir
+    ln -s "$(pwd)/nvim" $nvim_dir
 }
 
 install_wezterm_config() {
@@ -51,6 +51,17 @@ install_zsh_config() {
     ln -s "$(pwd)/zsh" $zsh_dir
 }
 
+install_git_config() {
+    gitignore="$HOME/.config/gitignore"
+    if [[ -f $gitignore ]]; then
+        echo "Removing existing global gitignore file"
+        rm $gitignore
+    fi
+    echo "Creating symlink to global gitignore file at $gitignore"
+    ln -s $(pwd)/dotfiles/gitignore $gitignore
+}
+
 install_neovim_config
 install_wezterm_config
 install_zsh_config
+install_git_config

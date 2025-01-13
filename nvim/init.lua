@@ -41,4 +41,7 @@ require("lazy").setup({
 			vim.cmd("colorscheme tokyodark")
 		end,
 	},
+	require("plugins.telescope"),
+	{ "sindrets/diffview.nvim" },
+	require("plugins.autosession"),
 })

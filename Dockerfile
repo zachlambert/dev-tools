@@ -1,5 +1,3 @@
-ARG USERNAME
-
 ARG DEV_IMAGE
 FROM $DEV_IMAGE AS dev
 
@@ -36,15 +34,24 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | b
 RUN echo "set -o vi" >> ~/.bashrc && \
     echo "source ~/.nvm/nvm.sh" >> ~/.bashrc
     
-
 # ZSH
 
-# Already installed zsh above
-ARG OMZSH_DIR=$USERNAME/.oh-my-zsh
-
-RUN sudo chsh -s $(which zsh)
+RUN sudo chsh -s /usr/bin/zsh
 RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-RUN git clone https://github.com/zsh-users/zsh-autosuggestions $OMZSH_DIR/plugins/zsh-autosuggestions && \
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting $OMZSH_DIR/plugins/zsh-syntax-highlighting
+
+ARG USERNAME
+RUN mkdir -p /home/$USERNAME/.oh-my-zsh/plugins && \
+    git clone https://github.com/zsh-users/zsh-autosuggestions /home/$USERNAME/.oh-my-zsh/plugins/zsh-autosuggestions && \
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting /home/$USERNAME/.oh-my-zsh/plugins/zsh-syntax-highlighting
 
 COPY dotfiles/.zshrc /home/$USERNAME/.zshrc
+
+# Copy nvim-config and do a headless-run to install the plugins
+# but remove afterwards since the config will be mounted
+# TODO: Work out how to get this to pre-install language servers via mason
+COPY nvim /home/$USERNAME/.config/nvim
+RUN nvim --headless -V +qall
+RUN sudo rm -rf /home/$USERNAME/.config/nvim
+
+COPY  dotfiles/gitignore /home/$USERNAME/.config/gitignore
+RUN git config --global core.excludesFile /home/$USERNAME/.config/gitignore
