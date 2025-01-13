@@ -1,27 +1,26 @@
 services:
-#   rust-dev-tools:
-#     network_mode: host
-#     ipc: host
-#     build:
-#       context: .
-#       args:
-#         DEV_IMAGE: rust-dev
-#         USER: ${USER}
-#         UID: ${UID}
-#         GID: ${GID}
-#         SHELL: ${SHELL}
-#     image: rust-dev-tools
-#     container_name: rust-dev-tools
-#     user: ${USER}
-#     command: "sleep infinity"
-#
+  #   rust-dev-tools:
+  #     network_mode: host
+  #     ipc: host
+  #     build:
+  #       context: .
+  #       args:
+  #         DEV_IMAGE: rust-dev
+  #         USER: ${USER}
+  #         UID: ${UID}
+  #         GID: ${GID}
+  #         SHELL: ${SHELL}
+  #     image: rust-dev-tools
+  #     container_name: rust-dev-tools
+  #     user: ${USER}
+  #     command: "sleep infinity"
+  #
   my-platform-io-dev:
     extends:
       file: /home/zachlambert/ros2_ws/src/platform_io/docker/docker-compose.yaml
       service: dev
-    # image: my-platform-io-dev:${DOCKER_TAG:-latest}
-    # TODO: Currently cannot build due to internet, re-using prev image
-    image: platform-io-dev-nvim:${DOCKER_TAG:-latest}
+    image: my-platform-io-dev:${DOCKER_TAG:-latest}
+    # image: platform-io-dev-nvim:${DOCKER_TAG:-latest}
     container_name: my-platform-io-dev
     build:
       dockerfile: /home/zachlambert/dev-tools/Dockerfile

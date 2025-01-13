@@ -1,3 +1,6 @@
+require("config.settings")
+require("config.keymaps")
+
 require("config.lazy")
 require("lazy").setup({
 	-- File explorer
@@ -30,7 +33,12 @@ require("lazy").setup({
 	require("plugins.lspconfig"),
 	require("plugins.formatter"),
 	require("plugins.gitsigns"),
+	{
+		"tiagovla/tokyodark.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.cmd("colorscheme tokyodark")
+		end,
+	},
 })
-
-require("config.settings")
-require("config.keymaps")
