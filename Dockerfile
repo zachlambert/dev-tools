@@ -1,42 +1,36 @@
 ARG DEV_IMAGE
+FROM $DEV_IMAGE AS dev
 
-FROM $DEV_IMAGE AS nvim-builder
+# NOTE: Running as user
 
-RUN mkdir build
-WORKDIR build
-
-RUN sudo apt update && \
-    sudo apt install -y \
+# Install development and debugging tools
+RUN sudo apt update --fix-missing && sudo apt -y install --no-install-recommends \
+    less \
+    fzf \
     ninja-build \
     gettext \
     cmake \
     unzip \
-    curl
+    curl \
+    clangd-14 \
+    stow \
+    && sudo apt clean && sudo rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/neovim/neovim.git
+RUN git clone https://github.com/neovim/neovim.git && \
+    cd neovim && \
+    make CMAKE_BUILD_TYPE=Release && \
+    sudo make install && \
+    cd ../ && \
+    rm -r neovim
 
-# RUN sudo apt update && \
-#     sudo apt install -y \
-#     ninja-build \
-#     gettext \
-#     cmake \
-#     unzip \
-#     curl && \
-#     git clone https://github.com/neovim/neovim.git && \
-#     cd neovim && \
-#     make CMAKE_BUILD_TYPE=Release && \
-#     sudo make install && \
-#     sudo rm -rf /var/lib/apt/lists/*
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash && \
+    . ~/.nvm/nvm.sh && \
+    nvm install node
 
-# RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash && \
-#     echo "nvm install node" | bash
-#
-# WORKDIR ../
-# RUN mkdir dev-tools
-# WORKDIR dev-tools
-# COPY . .
-#
-# # RUN ./script/install-zsh.sh
-# RUN ./install.sh
+RUN echo "set -o vi" >> ~/.bashrc && \
+    echo "source ~/.nvm/nvm.sh" >> ~/.bashrc
 
-WORKDIR ../
+RUN . ~/.nvm/nvm.sh && \
+    npm i -g pyright && \
+    npm i -g bash-language-server
+

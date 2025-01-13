@@ -51,6 +51,6 @@ install_zsh_config() {
     ln -s "$(pwd)/zsh" $zsh_dir
 }
 
-# install_neovim_config()
-# install_wezterm_config()
-install_zsh_config
+# install_neovim_config
+install_wezterm_config
+# install_zsh_config
