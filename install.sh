@@ -32,7 +32,7 @@ install_wezterm_config() {
 
 install_zsh_config() {
     zshrc="$HOME/.zshrc"
-    if [[ -h $zshrc ]]; then
+    if [[ -f $zshrc ]]; then
         echo "Removing existing .zshrc file"
         rm $zshrc
     fi
@@ -51,6 +51,6 @@ install_zsh_config() {
     ln -s "$(pwd)/zsh" $zsh_dir
 }
 
-# install_neovim_config
+install_neovim_config
 install_wezterm_config
-# install_zsh_config
+install_zsh_config

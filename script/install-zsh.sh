@@ -3,7 +3,7 @@
 zsh --version > /dev/null 2>&1
 if [[ $? -ne 0 ]]; then
     echo "zsh not installed, installing"
-    apt install zsh
+    sudo apt install -y zsh
 else
     echo "zsh already installed, skipping"
 fi

@@ -20,12 +20,14 @@ services:
       file: /home/zachlambert/ros2_ws/src/platform_io/docker/docker-compose.yaml
       service: dev
     image: my-platform-io-dev:${DOCKER_TAG:-latest}
-    # image: platform-io-dev-nvim:${DOCKER_TAG:-latest}
     container_name: my-platform-io-dev
     build:
-      dockerfile: /home/zachlambert/dev-tools/Dockerfile
+      context: .
+      dockerfile: Dockerfile
       target: dev
       args:
+        USERNAME: ${USERNAME}
         DEV_IMAGE: platform-io-dev
     volumes:
-      - /home/$USER/.config/nvim:/home/$USER/.config/nvim
+      - ./nvim:/home/$USERNAME/.config/nvim
+      - ./zsh:/home/$USERNAME/.config/zsh
