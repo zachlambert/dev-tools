@@ -33,12 +33,21 @@ require("lazy").setup({
 	require("plugins.lspconfig"),
 	require("plugins.formatter"),
 	require("plugins.gitsigns"),
+	-- {
+	-- 	"tiagovla/tokyodark.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		vim.cmd("colorscheme tokyodark")
+	-- 	end,
+	-- },
 	{
-		"tiagovla/tokyodark.nvim",
-		lazy = false,
-		priority = 1000,
+		"EdenEast/nightfox.nvim",
+		options = {
+			transparent = true,
+		},
 		config = function()
-			vim.cmd("colorscheme tokyodark")
+			vim.cmd("colorscheme nightfox")
 		end,
 	},
 	require("plugins.telescope"),
