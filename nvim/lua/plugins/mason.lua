@@ -17,6 +17,7 @@ return {
 				"ts_ls",
 				"pyright",
 				"tailwindcss",
+				"cmake",
 			},
 		})
 		require("mason-tool-installer").setup({
@@ -25,8 +26,8 @@ return {
 				"stylua", -- Lua
 				"black", -- Python
 				"eslint_d",
-				-- NOTE: Need to install manually
 				"clang-format",
+				-- "cmakelang", -- TODO: Edit the options, defaults aren't good
 			},
 		})
 	end,

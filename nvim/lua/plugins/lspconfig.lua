@@ -43,6 +43,7 @@ return {
 			"eslint",
 			"pyright",
 			"clangd",
+			"cmake",
 		}
 		for _, lsp_server in ipairs(lsp_servers) do
 			handlers[lsp_server] = function()

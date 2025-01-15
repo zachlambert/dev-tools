@@ -94,3 +94,7 @@ map("n", "<A-c>", "<Cmd>BufferClose<CR>", barbar_opts)
 -- Language-specific
 -- TODO: Only load this if in the correct file
 map("n", "<A-o>", "<Cmd>:ClangdSwitchSourceHeader<CR>")
+
+vim.keymap.set("n", "fr", function()
+	require("telescope.builtin").lsp_references()
+end, { noremap = true, silent = true })

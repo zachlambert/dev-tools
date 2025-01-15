@@ -6,8 +6,8 @@ function exports.apply(config)
 	config.color_scheme = "Afterglow"
 
 	config.window_background_opacity = 1.0
-	-- config.font = wezterm.font('0xProtoNerdFontMono')
-	config.font_size = 12
+	config.font = wezterm.font("DejaVuSansMono")
+	config.font_size = 11
 
 	config.enable_wayland = false
 	config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"

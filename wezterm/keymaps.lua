@@ -24,10 +24,10 @@ function exports.apply(config)
 		move_right = { mods = "LEADER", key = "l" },
 		move_up = { mods = "LEADER", key = "k" },
 		move_down = { mods = "LEADER", key = "j" },
-		resize_left = { mods = "LEADER", key = "H" },
-		resize_right = { mods = "LEADER", key = "L" },
-		resize_up = { mods = "LEADER", key = "K" },
-		resize_down = { mods = "LEADER", key = "J" },
+		resize_left = { mods = "ALT", key = "h" },
+		resize_right = { mods = "ALT", key = "l" },
+		resize_up = { mods = "ALT", key = "k" },
+		resize_down = { mods = "ALT", key = "j" },
 		reload_config = { mods = "LEADER", key = "r" },
 	}
 

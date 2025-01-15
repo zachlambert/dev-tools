@@ -25,3 +25,5 @@ o.termguicolors = true
 
 o.completeopt = "menuone,noinsert,noselect"
 o.shortmess = vim.opt.shortmess + "c"
+
+o.spell = true

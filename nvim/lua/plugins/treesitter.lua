@@ -33,7 +33,7 @@ return {
 				"cpp",
 				"rust",
 				"python",
-				"py",
+				"cmake",
 			},
 			incremental_selection = {
 				enable = true,
