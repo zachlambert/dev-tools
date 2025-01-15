@@ -15,12 +15,12 @@ services:
   #     user: ${USER}
   #     command: "sleep infinity"
   #
-  my-platform-io-dev:
+  platform-io-dev-files:
     extends:
       file: /home/zachlambert/ros2_ws/src/platform_io/docker/docker-compose.yaml
       service: dev
-    image: my-platform-io-dev:${DOCKER_TAG:-latest}
-    container_name: my-platform-io-dev
+    image: platform-io-dev-files:${DOCKER_TAG:-latest}
+    container_name: platform-io-dev-files
     build:
       context: .
       dockerfile: Dockerfile
@@ -28,6 +28,8 @@ services:
       args:
         USERNAME: ${USERNAME}
         DEV_IMAGE: platform-io-dev
+        GIT_NAME: "Zach Lambert"
+        GIT_EMAIL: "zl25@beam.global"
     volumes:
       - ./nvim:/home/$USERNAME/.config/nvim
       - ./zsh:/home/$USERNAME/.config/zsh
