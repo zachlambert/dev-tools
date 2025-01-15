@@ -8,7 +8,11 @@ require("lazy").setup({
 	-- Tabs
 	require("plugins.barbar"),
 	-- Indent line
-	{ "lukas-reineke/indent-blankline.nvim" },
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		opts = {},
+	},
 	-- Treesitter
 	require("plugins.treesitter"),
 	-- Autopairs
@@ -22,38 +26,16 @@ require("lazy").setup({
 			require("colorizer").setup({ "*" })
 		end,
 	},
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		config = function()
-			require("colorizer").setup({ "*" })
-		end,
-	},
+	require("plugins.lualine"),
 	require("plugins.mason"),
 	require("plugins.lspconfig"),
 	require("plugins.formatter"),
 	require("plugins.gitsigns"),
-	-- {
-	-- 	"tiagovla/tokyodark.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		vim.cmd("colorscheme tokyodark")
-	-- 	end,
-	-- },
-	{
-		"EdenEast/nightfox.nvim",
-		options = {
-			transparent = true,
-		},
-		config = function()
-			vim.cmd("colorscheme nightfox")
-		end,
-	},
 	require("plugins.telescope"),
 	{ "sindrets/diffview.nvim" },
 	require("plugins.autosession"),
 	{ "mfussenegger/nvim-dap" },
 	require("plugins.mason_nvim_dap"),
 	require("plugins.nvim_dap_ui"),
+	require("config.theme"),
 })

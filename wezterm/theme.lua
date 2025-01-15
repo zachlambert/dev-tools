@@ -3,11 +3,14 @@ local wezterm = require("wezterm")
 local exports = {}
 
 function exports.apply(config)
-	config.color_scheme = "Afterglow"
+	config.color_scheme = "nightfox"
+	-- config.color_scheme = "tokyonight_night"
+	-- config.color_scheme = "catppuccin-mocha"
+	-- config.color_scheme = "Sonokai (Gogh)"
 
-	config.window_background_opacity = 1.0
+	config.window_background_opacity = 0.98
 	config.font = wezterm.font("DejaVuSansMono")
-	config.font_size = 11
+	config.font_size = 12
 
 	config.enable_wayland = false
 	config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"

@@ -3,7 +3,14 @@ return {
 	tag = "0.1.6",
 	dependencies = { "nvim-lua/plenary.nvim" },
 	config = function()
-		require("telescope").setup()
+		require("telescope").setup({
+			defaults = {
+				file_ignore_patterns = {
+					"build",
+					"node_modules",
+				},
+			},
+		})
 
 		-- set keymaps
 		local keymap = vim.keymap
