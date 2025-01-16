@@ -10,7 +10,7 @@ function exports.apply(config)
 
 	config.window_background_opacity = 0.98
 	config.font = wezterm.font("DejaVuSansMono")
-	config.font_size = 12
+	config.font_size = 11
 
 	config.enable_wayland = false
 	config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
