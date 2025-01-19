@@ -38,4 +38,5 @@ require("lazy").setup({
 	require("plugins.mason_nvim_dap"),
 	require("plugins.nvim_dap_ui"),
 	require("config.theme"),
+	{ "ntpeters/vim-better-whitespace" },
 })
