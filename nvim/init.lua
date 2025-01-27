@@ -1,6 +1,3 @@
-require("config.settings")
-require("config.keymaps")
-
 require("config.lazy")
 require("lazy").setup({
 	-- File explorer
@@ -33,6 +30,14 @@ require("lazy").setup({
 	require("plugins.mason_nvim_dap"),
 	require("plugins.nvim_dap_ui"),
 	require("plugins.trouble"),
-	require("config.theme"),
 	{ "ntpeters/vim-better-whitespace" },
+	require("themes.catppuccin"),
+	require("themes.nightfox"),
+	require("themes.rosepine"),
+	require("themes.tokyonight"),
+	require("themes.onedark"),
 })
+
+require("config.settings")
+require("config.keymaps")
+require("config.theme")
