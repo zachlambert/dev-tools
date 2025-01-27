@@ -19,6 +19,9 @@ local tokyonight = {
 	priority = 1000,
 	opts = {},
 	config = function()
+		require("tokyonight").setup({
+			transparent = true,
+		})
 		vim.cmd("colorscheme tokyonight-night")
 	end,
 }
@@ -27,22 +30,25 @@ local catppuccin = {
 	"catppuccin/nvim",
 	name = "catppuccin",
 	config = function()
-		vim.cmd("colorscheme catppuccin-mocha")
+		require("catppuccin").setup({
+			flavour = "mocha",
+			transparent_background = true,
+			integrations = {
+				nvimtree = true,
+			},
+			highlight_overrides = {
+				mocha = function(mocha)
+					return {
+						NvimTreeNormal = { bg = mocha.none },
+					}
+				end,
+			},
+		})
+		vim.cmd("colorscheme catppuccin")
 	end,
 }
 -- Wezterm theme: catppuccin-mocha
 
-local sonokai = {
-	"sainnhe/sonokai",
-	config = function()
-		vim.g.sonokai_style = "atlantis"
-		vim.g.sonokai_transparent_background = 1
-		vim.cmd("colorscheme sonokai")
-	end,
-}
--- Wezterm theme:  Neutron
-
-return nightfox
+-- return nightfox
 -- return tokyonight
--- return catppuccin
--- return sonokai
+return catppuccin
