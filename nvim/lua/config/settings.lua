@@ -26,4 +26,7 @@ o.termguicolors = true
 o.completeopt = "menuone,noinsert,noselect"
 o.shortmess = vim.opt.shortmess + "c"
 
-o.spell = true
+-- NOTE: Does spell checking on gleam files erroneously - need to fix
+-- o.spell = true
+
+o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

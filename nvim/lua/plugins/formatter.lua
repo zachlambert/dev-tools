@@ -19,6 +19,7 @@ return {
 				python = { "isort", "black" },
 				cpp = { "clang-format" },
 				cmake = { "cmake-format" },
+				gleam = { "gleam" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

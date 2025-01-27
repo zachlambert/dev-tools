@@ -55,5 +55,16 @@ return {
 		end
 
 		mason_lspconfig.setup_handlers(handlers)
+
+		-- Gleam doesn't use mason
+		nvim_lsp.gleam.setup({
+			cmd = { "gleam", "lsp" },
+			filetypes = { "gleam" },
+			root_dir = function(fname)
+				return nvim_lsp.util.root_pattern("gleam.toml", ".git")(fname)
+			end,
+			on_attach = on_attach,
+			capabilities = capabilities,
+		})
 	end,
 }

@@ -63,9 +63,6 @@ map("n", "<C-n>", ":NvimTreeToggle<CR>") -- open/close
 map("n", "<leader>f", ":NvimTreeRefresh<CR>") -- refresh
 map("n", "<leader>n", ":NvimTreeFindFile<CR>") -- search file
 
--- Tagbar
-map("n", "<leader>z", ":TagbarToggle<CR>") -- open/close
-
 -- Barbar
 local barbar_opts = { noremap = true, silent = true }
 
@@ -98,3 +95,9 @@ map("n", "<A-o>", "<Cmd>:ClangdSwitchSourceHeader<CR>")
 vim.keymap.set("n", "fr", function()
 	require("telescope.builtin").lsp_references()
 end, { noremap = true, silent = true })
+
+-- setup diagnostics
+-- vim.diagnostic.config({ virtual_text = false })
+vim.keymap.set("n", "<leader>e", function()
+	vim.diagnostic.open_float()
+end, { noremap = true })

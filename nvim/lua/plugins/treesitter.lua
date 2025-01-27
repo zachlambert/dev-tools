@@ -34,6 +34,10 @@ return {
 				"rust",
 				"python",
 				"cmake",
+				"elixir",
+				"eex",
+				"heex",
+				"gleam",
 			},
 			incremental_selection = {
 				enable = true,
