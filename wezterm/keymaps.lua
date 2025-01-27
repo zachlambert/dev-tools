@@ -17,6 +17,8 @@ function exports.apply(config)
 		show_navigator = { mods = "LEADER", key = "w" },
 		tab_left = { mods = "ALT", key = "u" },
 		tab_right = { mods = "ALT", key = "i" },
+		move_tab_left = { mods = "ALT", key = "U" },
+		move_tab_right = { mods = "ALT", key = "I" },
 		split_horizontal = { mods = "LEADER", key = "s" },
 		split_vertical = { mods = "LEADER", key = "v" },
 		close_pane = { mods = "LEADER", key = "q" },
@@ -29,6 +31,7 @@ function exports.apply(config)
 		resize_up = { mods = "ALT", key = "k" },
 		resize_down = { mods = "ALT", key = "j" },
 		reload_config = { mods = "LEADER", key = "r" },
+		debug_overlay = { mods = "LEADER", key = "d" },
 	}
 
 	local actions = {
@@ -37,6 +40,8 @@ function exports.apply(config)
 		show_navigator = act.ShowTabNavigator,
 		tab_left = act.ActivateTabRelative(-1),
 		tab_right = act.ActivateTabRelative(1),
+		move_tab_left = act.MoveTabRelative(-1),
+		move_tab_right = act.MoveTabRelative(1),
 		split_horizontal = act({ SplitHorizontal = { domain = "CurrentPaneDomain" } }),
 		split_vertical = act({ SplitVertical = { domain = "CurrentPaneDomain" } }),
 		close_pane = act({ CloseCurrentPane = { confirm = false } }),
@@ -49,6 +54,7 @@ function exports.apply(config)
 		resize_up = act({ AdjustPaneSize = { "Up", 2 } }),
 		resize_down = act({ AdjustPaneSize = { "Down", 2 } }),
 		reload_config = act.ReloadConfiguration,
+		debug_overlay = act.ShowDebugOverlay,
 	}
 
 	config.keys = {}

@@ -4,7 +4,7 @@ require("config.keymaps")
 require("config.lazy")
 require("lazy").setup({
 	-- File explorer
-	{ "kyazdani42/nvim-tree.lua", opts = {} },
+	{ "kyazdani42/nvim-tree.lua", opts = { view = { adaptive_size = true } } },
 	-- Tabs
 	require("plugins.barbar"),
 	-- Indent line

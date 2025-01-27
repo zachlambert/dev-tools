@@ -38,8 +38,6 @@ end
 
 function exports.make_docker_fixup_func()
 	return function(cmd)
-		-- cmd.args = cmd.args or { os.getenv("SHELL") }
-		-- NOTE: Currently only support bash in dev container
 		cmd.args = cmd.args or { "/usr/bin/bash" }
 		local wrapped = {
 			"docker",
