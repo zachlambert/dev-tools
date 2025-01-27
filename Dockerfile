@@ -65,7 +65,8 @@ ARG GIT_EMAIL
 COPY  dotfiles/gitignore /home/$USERNAME/.config/gitignore
 RUN git config --global core.excludesFile /home/$USERNAME/.config/gitignore && \
     git config --global user.name "$GIT_NAME" && \
-    git config --global user.email "$GIT_EMAIL"
+    git config --global user.email "$GIT_EMAIL" && \
+    git config --global pager.branch false
 
 # Replicate extra .bashrc statements in .zshrc
 
