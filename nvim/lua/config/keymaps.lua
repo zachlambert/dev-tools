@@ -87,6 +87,7 @@ map("n", "<A-0>", "<Cmd>BufferLast<CR>", barbar_opts)
 map("n", "<A-p>", "<Cmd>BufferPin<CR>", barbar_opts)
 -- Close buffer
 map("n", "<A-c>", "<Cmd>BufferClose<CR>", barbar_opts)
+map("n", "<A-C>", "<Cmd>BufferCloseAllButCurrent<CR>", barbar_opts)
 
 -- Language-specific
 -- TODO: Only load this if in the correct file

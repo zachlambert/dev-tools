@@ -20,7 +20,10 @@ RUN sudo apt update --fix-missing && sudo apt -y install --no-install-recommends
     python3-venv \
     zsh \
     llvm \
+    xclip \
     && sudo apt clean && sudo rm -rf /var/lib/apt/lists/*
+
+WORKDIR /home/user
 
 RUN git clone https://github.com/neovim/neovim.git && \
     cd neovim && \
@@ -37,14 +40,14 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | b
 
 RUN echo "set -o vi" >> ~/.bashrc && \
     echo "source ~/.nvm/nvm.sh" >> ~/.bashrc
-    
+
 # ZSH
 # NOTE: Currently disabling zshrc, there's various things setup for bash only
 # which aren't worth replicating at the moment
 
 # RUN sudo chsh -s /usr/bin/zsh
 # RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-# 
+#
 # ARG USERNAME
 # RUN mkdir -p /home/$USERNAME/.oh-my-zsh/plugins && \
 #     git clone https://github.com/zsh-users/zsh-autosuggestions /home/$USERNAME/.oh-my-zsh/plugins/zsh-autosuggestions && \
@@ -74,8 +77,8 @@ RUN git config --global core.excludesFile /home/$USERNAME/.config/gitignore && \
 # ARG CMD_HIST_LOCATION=/commandhistory
 # RUN mkdir -p $CMD_HIST_LOCATION \
 #     && touch $CMD_HIST_LOCATION/.zsh_history \
-#     && echo "export PROMPT_COMMAND='history -a' && export HISTFILE=$CMD_HIST_LOCATION/.zsh_history" >> "/home/$USERNAME/.zshrc" 
-# 
+#     && echo "export PROMPT_COMMAND='history -a' && export HISTFILE=$CMD_HIST_LOCATION/.zsh_history" >> "/home/$USERNAME/.zshrc"
+#
 # RUN sudo chmod +x /entrypoint.sh && \
 #     echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.zsh" >> /home/${USERNAME}/.zshrc && \
 #     echo "source /opt/ros/${ROS_DISTRO}/setup.zsh" && \
