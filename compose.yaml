@@ -31,5 +31,5 @@ services:
         GIT_NAME: "Zach Lambert"
         GIT_EMAIL: "zl25@beam.global"
     volumes:
-      - ./nvim:/home/$USERNAME/.config/nvim
-      - ./zsh:/home/$USERNAME/.config/zsh
+      - ./nvim:/home/user/.config/nvim
+      - ./zsh:/home/user/.config/zsh

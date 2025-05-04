@@ -87,6 +87,7 @@ map("n", "<A-0>", "<Cmd>BufferLast<CR>", barbar_opts)
 map("n", "<A-p>", "<Cmd>BufferPin<CR>", barbar_opts)
 -- Close buffer
 map("n", "<A-c>", "<Cmd>BufferClose<CR>", barbar_opts)
+map("n", "<A-C>", "<Cmd>BufferCloseAllButCurrent<CR>", barbar_opts)
 
 -- Language-specific
 -- TODO: Only load this if in the correct file
@@ -101,3 +102,9 @@ end, { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>e", function()
 	vim.diagnostic.open_float()
 end, { noremap = true })
+
+vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
+vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Fuzzy find recent files" })
+vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find string in cwd" })
+vim.keymap.set("n", "<leader>fs", "<cmd>Telescope git_status<cr>", { desc = "Find string under cursor in cwd" })
+vim.keymap.set("n", "<leader>fc", "<cmd>Telescope git commits<cr>", { desc = "Find todos" })
