@@ -7,9 +7,9 @@ function exports.apply(config)
 	-- config.color_scheme = "tokyonight_night"
 	config.color_scheme = "catppuccin-mocha"
 
-	config.window_background_opacity = 0.925
+	config.window_background_opacity = 1
 	config.font = wezterm.font("DejaVuSansMono")
-	config.font_size = 11
+	config.font_size = 12
 
 	config.enable_wayland = false
 	config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
