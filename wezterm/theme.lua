@@ -5,8 +5,8 @@ local exports = {}
 function exports.apply(config)
 	-- config.color_scheme = "nightfox"
 	-- config.color_scheme = "tokyonight_night"
-	-- config.color_scheme = "catppuccin-mocha"
-	config.color_scheme = "OneDark (base16)"
+	config.color_scheme = "catppuccin-mocha"
+	-- config.color_scheme = "OneDark (base16)"
 
 	config.window_background_opacity = 1
 	config.font = wezterm.font("DejaVuSansMono")

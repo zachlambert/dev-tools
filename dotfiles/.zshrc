@@ -14,9 +14,10 @@ xhost +local:docker > /dev/null 2>&1
 export PATH="/home/zach/.pixi/bin:$PATH"
 eval "$(pixi completion --shell zsh)"
 export AWS_PROFILE=ReadOnlyAccess-VaarstProduction
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
+
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init - zsh)"
 
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
 

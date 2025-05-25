@@ -15,21 +15,40 @@ services:
   #     user: ${USER}
   #     command: "sleep infinity"
   #
-  platform-io-dev-files:
+  # platform-io-dev-files:
+  #   extends:
+  #     file: /home/zachlambert/ros2_ws/src/platform_io/docker/docker-compose.yaml
+  #     service: dev
+  #   image: platform-io-dev-files:${DOCKER_TAG:-latest}
+  #   container_name: platform-io-dev-files
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #     target: dev
+  #     args:
+  #       USERNAME: ${USERNAME}
+  #       DEV_IMAGE: platform-io-dev
+  #       GIT_NAME: "Zach Lambert"
+  #       GIT_EMAIL: "zl25@beam.global"
+  #   volumes:
+  #     - ./nvim:/home/user/.config/nvim
+  #     - ./zsh:/home/user/.config/zsh
+  amr-ros-dev-files:
     extends:
-      file: /home/zachlambert/ros2_ws/src/platform_io/docker/docker-compose.yaml
+      file: /home/zach/code/robotics/ros/amr_ros/docker/compose.yaml
       service: dev
-    image: platform-io-dev-files:${DOCKER_TAG:-latest}
-    container_name: platform-io-dev-files
+    image: amr-ros-dev-files
+    container_name: amr-ros-dev-files
     build:
       context: .
       dockerfile: Dockerfile
       target: dev
       args:
-        USERNAME: ${USERNAME}
-        DEV_IMAGE: platform-io-dev
+        USER: $USER
+        DEV_IMAGE: amr-ros-dev
         GIT_NAME: "Zach Lambert"
-        GIT_EMAIL: "zl25@beam.global"
+        GIT_EMAIL: "zachalambert@gmail.com"
     volumes:
-      - ./nvim:/home/user/.config/nvim
-      - ./zsh:/home/user/.config/zsh
+      - ./nvim:/home/zach/.config/nvim
+      - ./zsh:/home/zach/.config/zsh
+    command: sleep infinity
