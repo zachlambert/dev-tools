@@ -48,9 +48,10 @@ RUN mkdir -p .oh-my-zsh/plugins && \
 
 ARG USER
 
-RUN mv .zshrc .zshrc-original
+# omz moves the original .zshrc to .zshrc.pre-oh-my-zsh
+RUN rm .zshrc # Remove oh-my-zsh generated config
 COPY --chown=$USER:$USER dotfiles/.zshrc .zshrc
-RUN cat .zshrc-original >> .zshrc && rm .zshrc-original
+RUN cat .zshrc.pre-oh-my-zsh >> .zshrc && rm .zshrc.pre-oh-my-zsh
 
 # Copy nvim-config and do a headless-run to install the plugins
 # but remove afterwards since the config will be mounted
