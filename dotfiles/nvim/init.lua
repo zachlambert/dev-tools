@@ -12,24 +12,6 @@ require("lazy").setup({
     main = "ibl",
     opts = {},
   },
-  {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    ft = { "markdown" },
-    build = function()
-      vim.fn["mkdp#util#install"]()
-    end,
-    config = function()
-      vim.cmd([[do FileType]])
-      vim.cmd([[
-        function OpenMarkdownPreview (url)
-          let cmd = "firefox --new-window " . shellescape(a:url) . " &"
-            silent call system(cmd)
-          endfunction
-        ]])
-      vim.g.mkdp_browserfunc = "OpenMarkdownPreview"
-    end,
-  },
   -- Treesitter
   require("plugins.treesitter"),
   -- Autopairs
