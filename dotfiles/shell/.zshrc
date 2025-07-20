@@ -1,5 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
-for file in ~/.config/zsh/*; do
+for file in ~/.config/shell/*; do
     source $file
 done
 source $ZSH/oh-my-zsh.sh
