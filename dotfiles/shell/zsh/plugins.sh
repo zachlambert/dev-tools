@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 plugins=(
     git
     vi-mode

@@ -1,6 +1,7 @@
 #!/bin/zsh
 
 # Use modern completion system
+fpath+=~/.zfunc
 autoload -Uz compinit
 compinit
 
