@@ -47,7 +47,7 @@ case $command in
             --skip-post-create \
             --remove-existing-container \
             --additional-features '{
-                "ghcr.io/zachlambert/dev-tools/neovim"
+                "ghcr.io/zachlambert/dev-tools/neovim": {}
             }' \
             --mount type=bind,source=$(pwd)/dotfiles/nvim,target=$user_config/nvim
         ;;
