@@ -30,3 +30,5 @@ o.shortmess = vim.opt.shortmess + "c"
 -- o.spell = true
 
 o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
+o.foldlevelstart = 99
