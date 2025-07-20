@@ -57,7 +57,7 @@ install_shell_config() {
         exit 1
     fi
     echo -e "${GREEN}- $shell_dir -> dotfiles/shell"
-    ln -s "$(pwd)/dotfiles/shell" $shell_dir
+    ln -s "$(pwd)/dotfiles/shell/shell" $shell_dir
 
     bash_dir="$config_dir/bash"
     if [[ -h $bash_dir ]]; then
@@ -67,7 +67,7 @@ install_shell_config() {
         exit 1
     fi
     echo -e "${GREEN}- $bash_dir -> dotfiles/bash"
-    ln -s "$(pwd)/dotfiles/bash" $bash_dir
+    ln -s "$(pwd)/dotfiles/shell/bash" $bash_dir
 
     zsh_dir="$config_dir/zsh"
     if [[ -h $zsh_dir ]]; then
@@ -77,7 +77,7 @@ install_shell_config() {
         exit 1
     fi
     echo -e "${GREEN}- $zsh_dir -> dotfiles/zsh"
-    ln -s "$(pwd)/dotfiles/zsh" $zsh_dir
+    ln -s "$(pwd)/dotfiles/shell/zsh" $zsh_dir
 }
 
 install_git_config() {
