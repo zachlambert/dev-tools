@@ -20,3 +20,7 @@ git clone "https://github.com/zsh-users/zsh-syntax-highlighting" "$OMZSH/plugins
 
 # First run of nvim -> install plugins
 nvim --headless -V +qall
+
+git config --global core.excludesfile ~/.config/gitignore
+
+sudo apt install -y less fzf xclip

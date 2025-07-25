@@ -5,3 +5,5 @@ plugins=(
     zsh-autosuggestions
     docker
 )
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'

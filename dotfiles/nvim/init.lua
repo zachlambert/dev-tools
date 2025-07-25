@@ -1,7 +1,15 @@
 require("config.lazy")
 require("lazy").setup({
   -- File explorer
-  { "kyazdani42/nvim-tree.lua", opts = { view = { adaptive_size = true } } },
+  {
+    "kyazdani42/nvim-tree.lua",
+    opts = {
+      view = {
+        adaptive_size = true,
+        width = { max = "30%" },
+      },
+    },
+  },
   -- Gleam (not supported by mason)
   { "gleam-lang/gleam.vim" },
   -- Tabs
@@ -11,6 +19,10 @@ require("lazy").setup({
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     opts = {},
+  },
+  {
+    'nmac427/guess-indent.nvim',
+    config = function() require('guess-indent').setup {} end,
   },
   -- Treesitter
   require("plugins.treesitter"),

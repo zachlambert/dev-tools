@@ -2,8 +2,10 @@
 
 # Use modern completion system
 fpath+=~/.zfunc
-autoload -Uz compinit
+autoload -Uz +X compinit
 compinit
+autoload -Uz +X bashcompinit
+bashcompinit
 
 
 # From default .zshrc
@@ -24,3 +26,8 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+if command -v register-python-argcomplete >/dev/null 2>&1; then
+  eval "$(register-python-argcomplete ros2)"
+  eval "$(register-python-argcomplete colcon)"
+fi
