@@ -38,6 +38,7 @@ return {
 				"eex",
 				"heex",
 				"gleam",
+				"usd",
 			},
 			incremental_selection = {
 				enable = true,

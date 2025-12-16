@@ -28,8 +28,9 @@ function exports.make_ssh_fixup_func()
 		cmd.args = cmd.args or { "/usr/bin/bash" }
 		local wrapped = {
 			"ssh",
-			"vaarst@192.168.55.1",
+			ssh_session,
 			"-t",
+			"-X",
 		}
 		for _, arg in ipairs(cmd.args) do
 			table.insert(wrapped, arg)

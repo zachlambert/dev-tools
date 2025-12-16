@@ -10,9 +10,9 @@ end
 
 function exports.get_devcontainers()
 	return {
-		kudan_ros2_base = {
+		kdnavigation = {
 			workspace = "/home/zach/code/navigation/KdNavigation",
-			config = "/home/zach/code/navigation/KdNavigation/.devcontainer/ros2_base/devcontainer.json",
+			config = "/home/zach/code/navigation/KdNavigation/.devcontainer/devcontainer.json",
 		},
 	}
 end
@@ -28,7 +28,7 @@ function exports.make_devcontainer_fixup_func()
 			config.workspace,
 			"--config",
 			config.config,
-      "zsh"
+			"zsh",
 		}
 
 		cmd.args = args

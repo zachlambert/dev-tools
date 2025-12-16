@@ -31,3 +31,5 @@ if command -v register-python-argcomplete >/dev/null 2>&1; then
   eval "$(register-python-argcomplete ros2)"
   eval "$(register-python-argcomplete colcon)"
 fi
+
+setopt nosharehistory

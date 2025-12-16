@@ -13,7 +13,7 @@ return {
 				css = { "prettier" },
 				html = { "prettier" },
 				-- json = { "prettier" },
-				yaml = { "prettier" },
+				-- yaml = { "prettier" },
 				markdown = { "prettier" },
 				lua = { "stylua" },
 				python = { "black" },
