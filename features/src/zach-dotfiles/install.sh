@@ -25,7 +25,7 @@ apt update && \
 
 # Install node
 su $_CONTAINER_USER -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash'
-su $_CONTAINER_USER -c 'bash -c "nvm install node"'
+su $_CONTAINER_USER -c 'bash -c "source ~/.bashrc; nvm install node"'
 
 # First run of nvim -> install plugins
 su $_CONTAINER_USER -c "nvim --headless -V +qall"
