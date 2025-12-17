@@ -19,10 +19,13 @@ chown -R $_CONTAINER_USER:$_CONTAINER_USER .config
 rm -r dev-tools
 
 # First run of nvim -> install plugins
-su $_CONTAINER_USER -c nvim --headless -V +qall
+su $_CONTAINER_USER -c "nvim --headless -V +qall"
+
+su $_CONTAINER_USER -c "echo $_CONTAINER_USER >> test.txt"
+su $_CONTAINER_USER -c 'echo $USER >> test.txt'
 
 # Set git settings
-su $_CONTAINER_USER git config --global core.excludesfile /home/$_CONTAINER_USER/.config/gitignore
+su $_CONTAINER_USER -c "git config --global core.excludesfile /home/$_CONTAINER_USER/.config/gitignore"
 
 # Install extra useful packages
 # apt update && \
