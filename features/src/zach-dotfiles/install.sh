@@ -1,5 +1,7 @@
 #!/bin/sh
 
+su $_CONTAINER_USER
+
 cd /home/kudan
 echo "User=$USER" >> what-is-user.txt
 echo "User=$(whoami)" >> what-is-whoami.txt
