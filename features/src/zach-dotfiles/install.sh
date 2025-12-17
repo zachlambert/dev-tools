@@ -11,6 +11,8 @@ echo "USER=$USER" >> feature-debug.txt
 # echo "USER=${USER}" >> feature-debug.txt
 echo "Whomai=$(whoami)" >> feature-debug.txt
 
+sudo su $_CONTAINER_USER
+
 mkdir -p .config
 
 git clone https://github.com/zachlambert/dev-tools.git
@@ -33,6 +35,6 @@ nvim --headless -V +qall
 git config --global core.excludesfile /home/$USER/.config/gitignore
 
 # Install extra useful packages
-apt update && \
-  apt install -y less fzf xclip && \
-  rm -rf /var/lib/apt/lists/*
+# apt update && \
+#   apt install -y less fzf xclip && \
+#   rm -rf /var/lib/apt/lists/*
