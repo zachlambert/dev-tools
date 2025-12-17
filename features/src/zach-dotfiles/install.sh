@@ -2,20 +2,20 @@
 
 cd /home/kudan
 echo "User=$USER" >> what-is-user.txt
+echo "User=$(whoami)" >> what-is-whoami.txt
 
 mkdir -p .config
 
 git clone https://github.com/zachlambert/dev-tools.git
-cd dev-tools/dotfiles
 
-mkdir -p .config
-cp -r nvim .config/nvim
-cp -r shell/shell .config/shell
-cp -r shell/bash .config/bash
-cp -r shell/zsh .config/zsh
-cp -r shell/.bashrc .bashrc
-cp -r shell/.zshrc .zshrc
-cp git/gitignore .config/gitignore
+dotfiles=dev-tools/dotfiles
+cp -r $dotfiles/nvim .config/nvim
+cp -r $dotfiles/shell/shell .config/shell
+cp -r $dotfiles/shell/bash .config/bash
+cp -r $dotfiles/shell/zsh .config/zsh
+cp -r $dotfiles/shell/.bashrc .bashrc
+cp -r $dotfiles/shell/.zshrc .zshrc
+cp $dotfiles/git/gitignore .config/gitignore
 
 # rm -r dev-tools
 
