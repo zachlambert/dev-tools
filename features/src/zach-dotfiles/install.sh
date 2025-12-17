@@ -3,9 +3,8 @@
 sudo touch /is-this-created.txt
 cd /home/kudan
 touch test-dotfiles.txt
-exit 0
 
-# mkdir -p /home/$USER/.config
+mkdir -p /home/$USER/.config
 # 
 # git clone https://github.com/zachlambert/dev-tools.git
 # cd dev-tools/dotfiles
