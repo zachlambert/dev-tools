@@ -6,9 +6,9 @@ touch feature-debug.txt
 echo "_CONTAINER_USER=$_CONTAINER_USER" >> feature-debug.txt
 echo "_REMOTE_USER=$_REMOTE_USER" >> feature-debug.txt
 echo "USER=$USER" >> feature-debug.txt
-echo "_CONTAINER_USER=${_CONTAINER_USER{}" >> feature-debug.txt
-echo "_REMOTE_USER=${_REMOTE_USER}" >> feature-debug.txt
-echo "USER=${USER}" >> feature-debug.txt
+# echo "_CONTAINER_USER=${_CONTAINER_USER}" >> feature-debug.txt
+# echo "_REMOTE_USER=${_REMOTE_USER}" >> feature-debug.txt
+# echo "USER=${USER}" >> feature-debug.txt
 echo "Whomai=$(whoami)" >> feature-debug.txt
 
 mkdir -p .config
