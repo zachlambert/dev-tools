@@ -18,13 +18,17 @@ cp $dotfiles/git/gitignore .config/gitignore
 chown -R $_CONTAINER_USER:$_CONTAINER_USER .config
 rm -r dev-tools
 
+# Install extra useful packages
+apt update && \
+  apt install -y less fzf xclip curl && \
+  rm -rf /var/lib/apt/lists/*
+
+# Install node
+su $_CONTAINER_USER -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash'
+su $_CONTAINER_USER -c 'bash -c "nvm install node"'
+
 # First run of nvim -> install plugins
 su $_CONTAINER_USER -c "nvim --headless -V +qall"
 
 # Set git settings
 su $_CONTAINER_USER -c 'git config --global core.excludesfile /home/$USER/.config/gitignore'
-
-# Install extra useful packages
-apt update && \
-  apt install -y less fzf xclip && \
-  rm -rf /var/lib/apt/lists/*
