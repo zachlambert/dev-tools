@@ -16,6 +16,8 @@ cp -r $dotfiles/shell/.zshrc .zshrc
 cp $dotfiles/git/gitignore .config/gitignore
 
 chown -R $_CONTAINER_USER:$_CONTAINER_USER .config
+chown $_CONTAINER_USER:$_CONTAINER_USER .bashrc
+chown $_CONTAINER_USER:$_CONTAINER_USER .zshrc
 rm -r dev-tools
 
 # Install extra useful packages
