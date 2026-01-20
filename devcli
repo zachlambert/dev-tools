@@ -1,0 +1,48 @@
+#!/bin/bash
+
+if ! devcontainer --help > /dev/null
+then
+  echo "devcontainer CLI not installed"
+  exit 1
+fi
+
+print_usage() {
+  echo "Usage: devcli [build | start | restart]"
+}
+
+if [[ $# -ne 1 ]]; then
+  print_usage
+  exit 1;
+fi
+
+additional-features='{
+  "ghcr.io/zachlambert/dev-tools/neovim": {},
+  "ghcr.io/zachlambert/dev-tools/zsh": {},
+  "ghcr.io/zachlambert/dev-tools/zach-dotfiles": {}
+}'
+
+
+case $1 in
+  "build")
+    devcontainer build \
+      --workspace-folder . \
+      --additional-features '{
+        "ghcr.io/zachlambert/dev-tools/neovim": {},
+        "ghcr.io/zachlambert/dev-tools/zsh": {},
+        "ghcr.io/zachlambert/dev-tools/zach-dotfiles": {}
+      }'
+    ;;
+  "start")
+    devcontainer up \
+      --workspace-folder . \
+      --additional-features '{
+        "ghcr.io/zachlambert/dev-tools/neovim": {},
+        "ghcr.io/zachlambert/dev-tools/zsh": {},
+        "ghcr.io/zachlambert/dev-tools/zach-dotfiles": {}
+      }' \
+      --remove-existing-container
+    ;;
+  *)
+    print_usage
+    ;;
+esac
