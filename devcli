@@ -25,6 +25,7 @@ additional-features='{
 case $1 in
   "build")
     devcontainer build \
+      --no-cache \
       --workspace-folder . \
       --additional-features '{
         "ghcr.io/zachlambert/dev-tools/neovim": {},
