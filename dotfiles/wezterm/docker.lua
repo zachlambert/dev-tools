@@ -38,7 +38,7 @@ end
 
 function exports.make_docker_fixup_func()
 	return function(cmd)
-		cmd.args = cmd.args or { "/bin/bash" }
+		cmd.args = cmd.args or { "/bin/zsh" }
 		local wrapped = {
 			"docker",
 			"exec",

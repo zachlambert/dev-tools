@@ -1,7 +1,6 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 local docker = require("docker")
-local devcontainer = require("devcontainer")
 local ssh = require("ssh")
 
 local exports = {}
@@ -11,10 +10,6 @@ function exports.spawn_tab_in_domain()
 		local choices = { { label = "host", id = "host" } }
 		for id, name in pairs(docker.get_containers()) do
 			full_name = "docker:" .. name
-			table.insert(choices, { label = full_name, id = full_name })
-		end
-		for name, config in pairs(devcontainer.get_devcontainers()) do
-			full_name = "devcontainer:" .. name
 			table.insert(choices, { label = full_name, id = full_name })
 		end
 		for id, _ in pairs(ssh.get_ssh_sessions()) do
@@ -28,10 +23,6 @@ function exports.spawn_tab_in_domain()
 				container_name = string.sub(selection, ("docker:"):len() + 1, selection:len())
 				docker.set_container(container_name)
 				window:perform_action(act.SpawnTab({ DomainName = "docker" }), pane)
-			elseif selection:find("devcontainer:") then
-				devcontainer_name = string.sub(selection, ("devcontainer:"):len() + 1, selection:len())
-				devcontainer.set_devcontainer_name(devcontainer_name)
-				window:perform_action(act.SpawnTab({ DomainName = "devcontainer" }), pane)
 			elseif selection:find("ssh:") then
 				ssh_session = string.sub(selection, ("ssh:"):len() + 1, selection:len())
 				ssh.set_ssh_session(ssh_session)
@@ -57,16 +48,6 @@ function exports.apply(config)
 			return function(name)
 				return wezterm.format({
 					Text = "docker container",
-				})
-			end
-		end)
-	)
-	table.insert(
-		config.exec_domains,
-		wezterm.exec_domain("devcontainer", devcontainer.make_devcontainer_fixup_func(), function()
-			return function(name)
-				return wezterm.format({
-					Text = "devcontainer",
 				})
 			end
 		end)
