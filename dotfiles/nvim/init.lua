@@ -6,7 +6,10 @@ require("lazy").setup({
 		opts = {
 			view = {
 				adaptive_size = true,
-				width = { max = "50%" },
+				width = { max = "30%" },
+			},
+			renderer = {
+				group_empty = true,
 			},
 		},
 	},
