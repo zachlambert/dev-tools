@@ -1,5 +1,5 @@
 -- vim.cmd("colorscheme nightfox")
--- vim.cmd("colorscheme tokyonight")
-vim.cmd("colorscheme catppuccin")
+vim.cmd("colorscheme tokyonight")
+-- vim.cmd("colorscheme catppuccin")
 -- vim.cmd("colorscheme rosepine")
 -- vim.cmd("colorscheme onedark")

@@ -41,6 +41,7 @@ case $1 in
         "ghcr.io/zachlambert/dev-tools/zsh": {},
         "ghcr.io/zachlambert/dev-tools/zach-dotfiles": {}
       }' \
+      --mount type=bind,source=/home/$USER/.gitconfig,target=/home/$USER/.gitconfig \
       --remove-existing-container
     ;;
   *)

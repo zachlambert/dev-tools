@@ -4,7 +4,7 @@ export TZ=GMT
 export DEBIAN_FRONTEND=noninteractive
 
 apt update
-apt install -y ninja-build gettext cmake unzip curl git
+apt install -y ninja-build gettext cmake unzip curl git ripgrep
 
 mkdir nvim-build
 cd nvim-build

@@ -13,8 +13,6 @@ require("lazy").setup({
 			},
 		},
 	},
-	-- Gleam (not supported by mason)
-	{ "gleam-lang/gleam.vim" },
 	-- Tabs
 	require("plugins.barbar"),
 	-- Indent line
@@ -38,6 +36,7 @@ require("lazy").setup({
 	require("plugins.lualine"),
 	require("plugins.mason"),
 	require("plugins.lspconfig"),
+	{ "dchinmay2/clangd_extensions.nvim" },
 	require("plugins.formatter"),
 	require("plugins.gitsigns"),
 	require("plugins.telescope"),
@@ -48,7 +47,7 @@ require("lazy").setup({
 	require("plugins.nvim_dap_ui"),
 	require("plugins.trouble"),
 	{ "ntpeters/vim-better-whitespace" },
-	require("themes.catppuccin"),
+	-- require("themes.catppuccin"),
 	require("themes.nightfox"),
 	require("themes.rosepine"),
 	require("themes.tokyonight"),
