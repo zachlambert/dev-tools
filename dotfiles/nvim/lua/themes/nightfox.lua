@@ -9,7 +9,5 @@ return {
 				transparent = true,
 			},
 		})
-		-- vim.cmd("colorscheme nightfox")
 	end,
 }
-

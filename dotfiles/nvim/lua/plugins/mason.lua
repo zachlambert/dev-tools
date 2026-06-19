@@ -17,18 +17,18 @@ return {
 				"ts_ls",
 				"pyright",
 				"tailwindcss",
-				"cmake",
+				-- "cmake",
 			},
 		})
-		require("mason-tool-installer").setup({
-			ensure_installed = {
-				"prettier", -- Typescript, etc
-				"stylua", -- Lua
-				"black", -- Python
-				"eslint_d",
-				"clang-format",
-				-- "cmakelang", -- TODO: Edit the options, defaults aren't good
-			},
-		})
+		-- require("mason-tool-installer").setup({
+		-- 	ensure_installed = {
+		-- 		"prettier", -- Typescript, etc
+		-- 		"stylua", -- Lua
+		-- 		"black", -- Python
+		-- 		"eslint_d",
+		-- 		"clang-format",
+		-- 		-- "cmakelang", -- TODO: Edit the options, defaults aren't good
+		-- 	},
+		-- })
 	end,
 }

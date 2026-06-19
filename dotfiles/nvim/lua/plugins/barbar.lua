@@ -11,5 +11,4 @@ return {
 		animation = true,
 		insert_at_start = true,
 	},
-	version = "^1.0.0",
 }

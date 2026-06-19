@@ -52,6 +52,9 @@ require("lazy").setup({
 	require("themes.rosepine"),
 	require("themes.tokyonight"),
 	require("themes.onedark"),
+	require("themes.nordic"),
+	require("themes.kanagawa"),
+	{ "dracula/vim" },
 })
 
 require("config.settings")

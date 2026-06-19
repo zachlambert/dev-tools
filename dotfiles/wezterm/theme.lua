@@ -3,12 +3,29 @@ local wezterm = require("wezterm")
 local exports = {}
 
 function exports.apply(config)
-	-- config.color_scheme = "nightfox"
-	-- config.color_scheme = "tokyonight_night"
-	config.color_scheme = "catppuccin-mocha"
-	-- config.color_scheme = "OneDark (base16)"
+	config.color_scheme = "nightfox"
+	config.colors = {
+		background = "#1B1B24",
+	}
 
-	config.window_background_opacity = 1
+	-- config.color_scheme = "tokyonight_night"
+	-- config.color_scheme = "catppuccin-mocha"
+
+	-- config.color_scheme = "OneDark (base16)"
+	-- config.colors = {
+	-- 	background = "#2A2A37",
+	-- }
+
+	-- config.color_scheme = 'Kanagawa (Gogh)'
+
+	-- config.color_scheme = "Dracula+"
+	-- config.colors = {
+	-- 	background = "#282a36",
+	-- }
+
+	-- config.color_scheme = "vscode"
+
+	config.window_background_opacity = 1.0
 	config.font = wezterm.font("DejaVuSansMono")
 	config.font_size = 11
 
@@ -19,6 +36,7 @@ function exports.apply(config)
 
 	-- Disable ligatures
 	config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
+	config.warn_about_missing_glyphs = false
 end
 
 return exports
