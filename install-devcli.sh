@@ -11,5 +11,5 @@ if [[ $# -gt 0 ]] && [[ $1 == "-s" ]]; then
   sudo ln -s $(pwd)/devcli $install_path
 else
   echo "Install: $install_path"
-  sudo cp devcli install_path
+  sudo cp devcli $install_path
 fi
