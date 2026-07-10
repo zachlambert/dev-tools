@@ -30,7 +30,8 @@ case $1 in
       --additional-features '{
         "ghcr.io/zachlambert/dev-tools/neovim": {},
         "ghcr.io/zachlambert/dev-tools/zsh": {},
-        "ghcr.io/zachlambert/dev-tools/zach-dotfiles": {}
+        "ghcr.io/zachlambert/dev-tools/zach-dotfiles": {},
+        "ghcr.io/zachlambert/dev-tools/claude-code": {}
       }'
     ;;
   "start")
@@ -39,9 +40,11 @@ case $1 in
       --additional-features '{
         "ghcr.io/zachlambert/dev-tools/neovim": {},
         "ghcr.io/zachlambert/dev-tools/zsh": {},
-        "ghcr.io/zachlambert/dev-tools/zach-dotfiles": {}
+        "ghcr.io/zachlambert/dev-tools/zach-dotfiles": {},
+        "ghcr.io/zachlambert/dev-tools/claude-code": {}
       }' \
       --mount type=bind,source=/home/$USER/.gitconfig,target=/home/$USER/.gitconfig \
+      --mount type=bind,source=/home/$USER/.claude/.credentials.json,target=/home/$USER/.claude/.credentials.json
       --remove-existing-container
     ;;
   *)
