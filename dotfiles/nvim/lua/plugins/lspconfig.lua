@@ -56,6 +56,8 @@ return {
 			end
 		end
 
-		mason_lspconfig.setup({handlers=handlers})
+		nvim_lsp.gdscript.setup({})
+
+		mason_lspconfig.setup({ handlers = handlers })
 	end,
 }

@@ -1,18 +1,19 @@
 require("config.lazy")
 require("lazy").setup({
 	-- File explorer
-	{
-		"kyazdani42/nvim-tree.lua",
-		opts = {
-			view = {
-				adaptive_size = true,
-				width = { max = "30%" },
-			},
-			renderer = {
-				group_empty = true,
-			},
-		},
-	},
+	-- {
+	-- 	"kyazdani42/nvim-tree.lua",
+	-- 	opts = {
+	-- 		view = {
+	-- 			adaptive_size = true,
+	-- 			width = { max = "30%" },
+	-- 		},
+	-- 		renderer = {
+	-- 			group_empty = true,
+	-- 		},
+	-- 	},
+	-- },
+	require("plugins.neo_tree"),
 	-- Tabs
 	require("plugins.barbar"),
 	-- Indent line

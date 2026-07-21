@@ -58,10 +58,8 @@ map("n", "<leader>q", ":qa!<CR>")
 map("n", "<C-t>", ":Term<CR>", { noremap = true }) -- open
 map("t", "<Esc>", "<C-\\><C-n>") -- exit
 
--- NvimTree
-map("n", "<C-n>", ":NvimTreeToggle<CR>") -- open/close
-map("n", "<leader>f", ":NvimTreeRefresh<CR>") -- refresh
-map("n", "<leader>n", ":NvimTreeFindFile<CR>") -- search file
+-- NeoTree
+map("n", "<C-n>", ":Neotree toggle<CR>") -- open/close
 
 -- Barbar
 local barbar_opts = { noremap = true, silent = true }
