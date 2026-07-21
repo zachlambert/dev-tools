@@ -19,6 +19,7 @@ additional_features='{
   "ghcr.io/zachlambert/dev-tools/neovim": {},
   "ghcr.io/zachlambert/dev-tools/zsh": {},
   "ghcr.io/zachlambert/dev-tools/zach-dotfiles": {},
+  "ghcr.io/zachlambert/dev-tools/maki": {},
   "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
 }'
 
@@ -36,6 +37,8 @@ case $1 in
       --mount type=bind,source=/home/$USER/.gitconfig,target=/home/$USER/.gitconfig \
       --mount type=bind,source=/home/$USER/.claude,target=/home/$USER/.claude \
       --mount type=bind,source=/home/$USER/.claude.json,target=/home/$USER/.claude.json \
+      --mount type=bind,source=/home/$USER/.config/maki,target=/home/$USER/.config/maki \
+      --mount type=bind,source=/home/$USER/.local/state/maki,target=/home/$USER/.local/state/maki \
       --remove-existing-container
     ;;
   *)
