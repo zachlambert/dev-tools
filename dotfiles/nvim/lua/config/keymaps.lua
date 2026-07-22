@@ -28,7 +28,6 @@ map("n", "<C-j>", "<C-w>j", "Go to below split")
 map("n", "<C-k>", "<C-w>k", "Go to above split")
 map("n", "<C-l>", "<C-w>l", "Go to right split")
 
-map("n", "<leader>r", ":so %<CR>", "Reload config")
 map("n", "<leader>s", ":w<CR>", "Save file")
 map("n", "<leader>q", ":qa!<CR>", "Quit all")
 
@@ -93,6 +92,9 @@ map("n", "<A-C>", close_buffers_menu, "Close buffers…")
 map("n", "<A-o>", "<Cmd>ClangdSwitchSourceHeader<CR>", "Switch source/header")
 map("n", "fr", "<cmd>Telescope lsp_references<cr>", "LSP references")
 map("n", "<leader>e", vim.diagnostic.open_float, "Show diagnostics float")
+
+-- UI
+map("n", "<leader>ut", "<cmd>Theme<cr>", "Select theme")
 
 -- Telescope
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", "Find files in cwd")
