@@ -9,7 +9,7 @@ apt install -y ninja-build gettext cmake unzip curl git ripgrep
 mkdir nvim-build
 cd nvim-build
 
-git clone https://github.com/neovim/neovim.git
+git clone https://github.com/neovim/neovim.git -b stable
 cd neovim
 make CMAKE_BUILD_TYPE=Release
 make install
