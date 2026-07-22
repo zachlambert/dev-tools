@@ -22,7 +22,7 @@ rm -r dev-tools
 
 # Install extra useful packages
 apt update && \
-  apt install -y less fzf xclip curl ripgrep gdb lldb && \
+  apt install -y less fzf xclip curl ripgrep gdb lldb clangd && \
   rm -rf /var/lib/apt/lists/*
 
 # Install node
