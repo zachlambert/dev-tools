@@ -8,6 +8,7 @@ return {
 		wk.add({
 			{ "<leader>f", group = "Find (Telescope)" },
 			{ "<leader>t", group = "Split orientation" },
+			{ "<leader>u", group = "UI" },
 			{ "<leader>x", group = "Trouble/Diagnostics" },
 		})
 		-- Key to dump ALL keymaps at once (the "show me everything" window)
