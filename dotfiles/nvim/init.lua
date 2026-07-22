@@ -41,6 +41,7 @@ require("lazy").setup({
 	require("plugins.formatter"),
 	require("plugins.gitsigns"),
 	require("plugins.telescope"),
+	require("plugins.which-key"),
 	{
 		"esmuellert/codediff.nvim",
 		cmd = "CodeDiff",
