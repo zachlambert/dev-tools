@@ -1,7 +1,10 @@
 require("config.lazy")
 
 require("lazy").setup({
-	{ import = "plugins" },
+	{ import = "plugins.ui" },
+	{ import = "plugins.editor" },
+	{ import = "plugins.lsp" },
+	{ import = "plugins.git" },
 	{ import = "themes" },
 })
 
