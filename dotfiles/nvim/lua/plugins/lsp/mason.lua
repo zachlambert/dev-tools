@@ -24,15 +24,16 @@ return {
 				-- "cmake",
 			},
 		})
-		-- require("mason-tool-installer").setup({
-		-- 	ensure_installed = {
-		-- 		"prettier", -- Typescript, etc
-		-- 		"stylua", -- Lua
-		-- 		"black", -- Python
-		-- 		"eslint_d",
-		-- 		"clang-format",
-		-- 		-- "cmakelang", -- TODO: Edit the options, defaults aren't good
-		-- 	},
-		-- })
+		-- Formatters used by conform (see editor/formatter.lua); auto-installed on new machines.
+		-- Note: conform's `gleam` formatter is the Gleam toolchain binary, not a mason package.
+		require("mason-tool-installer").setup({
+			ensure_installed = {
+				"prettier", -- js/ts/css/html/markdown
+				"stylua", -- lua
+				"black", -- python
+				"clang-format", -- cpp
+				"cmakelang", -- provides cmake-format
+			},
+		})
 	end,
 }
