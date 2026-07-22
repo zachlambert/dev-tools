@@ -1,5 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	branch = "master", -- pin to legacy API; the default `main` branch dropped nvim-treesitter.configs
 	event = { "BufReadPre", "BufNewFile" },
 	build = ":TSUpdate",
 	dependencies = {
