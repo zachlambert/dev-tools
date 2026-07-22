@@ -1,8 +1,7 @@
 return {
 	"EdenEast/nightfox.nvim",
-	options = {
-		transparent = true,
-	},
+	lazy = false, -- active colorscheme (set in config/theme.lua): load eagerly
+	priority = 1000,
 	config = function()
 		require("nightfox").setup({
 			options = {

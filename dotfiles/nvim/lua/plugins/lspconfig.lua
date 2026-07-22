@@ -8,34 +8,20 @@ return {
 	config = function()
 		local nvim_lsp = require("lspconfig")
 		local mason_lspconfig = require("mason-lspconfig")
-		local protocol = require("vim.lsp.protocol")
 
-		-- NOTE: Handled by conform plugin already
-		-- local on_attach = function(client, bufnr)
-		-- 	-- format on save
-		-- 	if client.server_capabilities.documentFormattingProvider then
-		-- 		vim.api.nvim_create_autocmd("BufWritePre", {
-		-- 			group = vim.api.nvim_create_augroup("Format", { clear = true }),
-		-- 			buffer = bufnr,
-		-- 			callback = function()
-		-- 				vim.lsp.buf.format()
-		-- 			end,
-		-- 		})
-		-- 	end
-		-- end
+		-- NOTE: Formatting is handled by the conform plugin already
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-		handlers = {
+		local handlers = {
 			function(server)
 				nvim_lsp[server].setup({
-					on_attach = on_attach,
 					capabilities = capabilities,
 				})
 			end,
 		}
 
-		lsp_servers = {
+		local lsp_servers = {
 			"ts_ls",
 			"cssls",
 			"tailwindcss",
@@ -50,7 +36,6 @@ return {
 		for _, lsp_server in ipairs(lsp_servers) do
 			handlers[lsp_server] = function()
 				nvim_lsp[lsp_server].setup({
-					on_attach = on_attach,
 					capabilities = capabilities,
 				})
 			end

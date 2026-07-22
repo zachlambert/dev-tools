@@ -27,7 +27,7 @@ return {
 					expander_expanded = "",
 				},
 			},
-			auto_restore_session_experimental = true
+			auto_restore_session_experimental = true,
 		},
 		config = function(_, opts)
 			opts.nesting_rules = {
