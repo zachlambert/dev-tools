@@ -30,7 +30,9 @@ su $_CONTAINER_USER -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0
 su $_CONTAINER_USER -c 'bash -c "source ~/.bashrc; nvm install node"'
 
 # First run of nvim -> install plugins
-su $_CONTAINER_USER -c "nvim --headless -V +qall"
+su $_CONTAINER_USER -c "nvim --headless '+Lazy! sync' +qa"
+su $_CONTAINER_USER -c "nvim --headless 'TSUpdateSync' +qa"
+su $_CONTAINER_USER -c "nvim --headless '+MasonToolsInstall' +qa"
 
 # Set git settings
 su $_CONTAINER_USER -c 'git config --global core.excludesfile /home/$USER/.config/gitignore'
