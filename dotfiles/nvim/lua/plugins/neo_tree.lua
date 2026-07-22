@@ -1,7 +1,7 @@
 return {
 	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
+		"pysan3/neo-tree.nvim",
+		branch = "restore-session-experimental",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"MunifTanjim/nui.nvim",
@@ -27,6 +27,7 @@ return {
 					expander_expanded = "",
 				},
 			},
+			auto_restore_session_experimental = true
 		},
 		config = function(_, opts)
 			opts.nesting_rules = {
