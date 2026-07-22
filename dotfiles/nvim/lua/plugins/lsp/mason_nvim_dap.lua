@@ -4,7 +4,7 @@ return {
 		local dap = require("dap")
 		dap.adapters.lldb = {
 			type = "executable",
-			command = "/usr/bin/lldb-vscode-14", -- REQUIRE: sudo apt install lldb
+			command = "/usr/bin/lldb", -- REQUIRE: sudo apt install lldb
 			name = "lldb",
 		}
 		dap.configurations.cpp = {

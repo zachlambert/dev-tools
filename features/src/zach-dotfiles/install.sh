@@ -22,7 +22,7 @@ rm -r dev-tools
 
 # Install extra useful packages
 apt update && \
-  apt install -y less fzf xclip curl ripgrep gdb && \
+  apt install -y less fzf xclip curl ripgrep gdb lldb && \
   rm -rf /var/lib/apt/lists/*
 
 # Install node
@@ -30,7 +30,7 @@ su $_CONTAINER_USER -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0
 su $_CONTAINER_USER -c 'bash -c "source ~/.bashrc; nvm install node"'
 
 # Install tree-sitter-cli
-su $_CONTAINER_USER -c 'bash -c "source ~/.bashrc; npm install -g tree-sitter-cli"'
+su $_CONTAINER_USER -c 'bash -c "source ~/.bashrc; npm install -g --allow-scripts=tree-sitter-cli tree-sitter-cli"'
 
 # First run of nvim -> install plugins
 su $_CONTAINER_USER -c "nvim --headless '+Lazy! sync' +qa"
