@@ -41,7 +41,15 @@ require("lazy").setup({
 	require("plugins.formatter"),
 	require("plugins.gitsigns"),
 	require("plugins.telescope"),
-	{ "sindrets/diffview.nvim" },
+	{
+		"esmuellert/codediff.nvim",
+		cmd = "CodeDiff",
+		opts = {
+			diff = {
+				layout = "inline", -- GitHub-style unified view; press `t` to toggle side-by-side
+			},
+		},
+	},
 	require("plugins.autosession"),
 	{ "mfussenegger/nvim-dap" },
 	require("plugins.mason_nvim_dap"),
