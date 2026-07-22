@@ -29,6 +29,9 @@ apt update && \
 su $_CONTAINER_USER -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash'
 su $_CONTAINER_USER -c 'bash -c "source ~/.bashrc; nvm install node"'
 
+# Install tree-sitter-cli
+npm install -g tree-sitter-cli
+
 # First run of nvim -> install plugins
 su $_CONTAINER_USER -c "nvim --headless '+Lazy! sync' +qa"
 su $_CONTAINER_USER -c "nvim --headless 'TSUpdateSync' +qa"
