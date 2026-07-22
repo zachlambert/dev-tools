@@ -106,3 +106,6 @@ map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", "List open buffers")
 map("n", "<leader>fs", "<cmd>Telescope git_status<cr>", "Git status")
 map("n", "<leader>fc", "<cmd>Telescope git commits<cr>", "Git commits")
 map("n", "<leader>fk", "<cmd>Telescope keymaps<cr>", "Search all keymaps")
+
+-- Markdown preview
+map("n", "<leader>mm", "<cmd>MarkdownPreviewToggle<cr>", "Toggle markdown preview")
