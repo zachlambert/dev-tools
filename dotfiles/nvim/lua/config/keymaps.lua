@@ -96,6 +96,9 @@ map("n", "<leader>e", vim.diagnostic.open_float, "Show diagnostics float")
 -- UI
 map("n", "<leader>ut", "<cmd>Theme<cr>", "Select theme")
 
+-- CodeDiff (git diff viewer)
+map("n", "<leader>dd", "<cmd>CodeDiff<cr>", "Diff explorer (working tree)")
+
 -- Telescope
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", "Find files in cwd")
 map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", "Live grep in cwd")
