@@ -4,21 +4,27 @@ return {
 		local dap = require("dap")
 		dap.adapters.lldb = {
 			type = "executable",
-			command = "/usr/bin/lldb", -- REQUIRE: sudo apt install lldb
+			command = "/usr/bin/lldb-dap", -- REQUIRE: sudo apt install lldb
 			name = "lldb",
 		}
 		dap.configurations.cpp = {
 			{
-				name = "Launch",
+				name = "Attach to gdbserver :1234",
 				type = "lldb",
-				request = "launch",
-				program = function()
-					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-				end,
+				request = "attach",
+				attachCommands = {
+					"gdb-remote localhost:1234",
+				},
 				cwd = "${workspaceFolder}",
-				stopOnEntry = false,
-				args = {},
 			},
+			-- Add back in needed, otherwise always use the above action
+			-- {
+			-- 	name = "Attach to process",
+			-- 	type = "lldb",
+			-- 	request = "attach",
+			-- 	pid = require("dap.utils").pick_process, -- prompts you to pick
+			-- 	cwd = "${workspaceFolder}",
+			-- },
 		}
 	end,
 }

@@ -96,8 +96,8 @@ map("n", "<leader>e", vim.diagnostic.open_float, "Show diagnostics float")
 -- UI
 map("n", "<leader>ut", "<cmd>Theme<cr>", "Select theme")
 
--- CodeDiff (git diff viewer)
-map("n", "<leader>dd", "<cmd>CodeDiff<cr>", "Diff explorer (working tree)")
+-- CodeDiff (review - diff)
+map("n", "<leader>rd", "<cmd>CodeDiff<cr>", "Diff explorer (working tree)")
 
 -- Telescope
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", "Find files in cwd")
@@ -109,3 +109,22 @@ map("n", "<leader>fk", "<cmd>Telescope keymaps<cr>", "Search all keymaps")
 
 -- Markdown preview
 map("n", "<leader>mm", "<cmd>MarkdownPreviewToggle<cr>", "Toggle markdown preview")
+
+-- Dap
+local dap = require("dap")
+local function goto_code_win()
+  -- if current window is a dap-ui / special buffer, jump to the previous (code) window
+  local ft = vim.bo.filetype
+  if ft:match("^dap") or ft == "dapui_watches" or ft == "dap-repl" then
+    vim.cmd("wincmd p")
+  end
+end
+map("n", "<leader>dd", "<cmd>DapNew<cr>", "Debugger: Start")
+map("n", "<leader>dq", "<cmd>DapDisconnect<cr>", "Debugger: Quit")
+map("n", "<leader>dk", function() goto_code_win(); dap.up() end, "Debugger: Up")
+map("n", "<leader>dj", function() goto_code_win(); dap.down() end, "Debugger: Down")
+map("n", "<leader>db", "<cmd>DapToggleBreakpoint<cr>", "Debugger: Toggle Breakpoint")
+map("n", "<leader>dc", "<cmd>DapContinue<cr>", "Debugger: Continue")
+map("n", "<leader>dss", "<cmd>DapStepOver<cr>", "Debugger: Step Over")
+map("n", "<leader>dsk", "<cmd>DapStepOut<cr>", "Debugger: Step Out")
+map("n", "<leader>dsj", "<cmd>DapStepInto<cr>", "Debugger: Step Into")

@@ -30,9 +30,9 @@ return {
 			ensure_installed = {
 				"prettier", -- js/ts/css/html/markdown
 				"stylua", -- lua
-				"black", -- python
-				"clang-format", -- cpp
-				"cmakelang", -- provides cmake-format
+				-- "black", -- python
+				-- "clang-format", -- cpp
+				-- "cmakelang", -- provides cmake-format
 			},
 		})
 	end,

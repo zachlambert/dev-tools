@@ -14,6 +14,7 @@ cp -r $dotfiles/shell/zsh .config/zsh
 cp -r $dotfiles/shell/.bashrc .bashrc
 cp -r $dotfiles/shell/.zshrc .zshrc
 cp $dotfiles/git/gitignore .config/gitignore
+cp $dotfiles/neogdb /usr/bin/neogdb
 
 chown -R $_CONTAINER_USER:$_CONTAINER_USER .config
 chown $_CONTAINER_USER:$_CONTAINER_USER .bashrc
@@ -23,6 +24,7 @@ rm -r dev-tools
 # Install extra useful packages
 apt update && \
   apt install -y less fzf xclip curl ripgrep gdb lldb clangd && \
+  ln -s /usr/bin/lldb-dap-18 /usr/bin/lldb-dap && \
   rm -rf /var/lib/apt/lists/*
 
 # Install node
