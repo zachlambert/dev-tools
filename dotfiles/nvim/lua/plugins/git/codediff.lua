@@ -7,8 +7,14 @@ return {
 		},
 		-- In-view action keymaps are prefixed with <leader>d so `<leader>d` shows them all
 		-- in which-key. Only diff-view actions are remapped; the `ih` hunk textobject, `do`/`dp`,
-		-- and explorer/history panel navigation (<CR>, K, i, R, z*) keep their defaults.
+		-- and the rest of the explorer/history panel navigation (K, i, R, z*) keep their defaults.
 		keymaps = {
+			explorer = {
+				select = "o", -- Open the file under the cursor (or toggle a group/directory)
+			},
+			history = {
+				select = "o", -- Open the commit/file under the cursor
+			},
 			view = {
 				next_hunk = "<leader>d]",
 				prev_hunk = "<leader>d[",

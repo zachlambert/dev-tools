@@ -18,13 +18,13 @@ return {
 				cwd = "${workspaceFolder}",
 			},
 			-- Add back in needed, otherwise always use the above action
-			-- {
-			-- 	name = "Attach to process",
-			-- 	type = "lldb",
-			-- 	request = "attach",
-			-- 	pid = require("dap.utils").pick_process, -- prompts you to pick
-			-- 	cwd = "${workspaceFolder}",
-			-- },
+			{
+				name = "Attach to process",
+				type = "lldb",
+				request = "attach",
+				pid = require("dap.utils").pick_process, -- prompts you to pick
+				cwd = "${workspaceFolder}",
+			},
 		}
 	end,
 }

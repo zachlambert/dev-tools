@@ -6,11 +6,11 @@ return {
 		wk.setup({}) -- defaults: popup on prefix, delay ~200ms, reads `desc`
 		-- Prefix group labels (leader is ",")
 		wk.add({
-			{ "<leader>d", group = "Debugger" },
 			{ "<leader>f", group = "Find" },
 			{ "<leader>u", group = "UI" },
 			{ "<leader>x", group = "Trouble/Diagnostics" },
-			{ "<leader>r", group = "Review" },
+			{ "<leader>d", group = "Diff" },
+			{ "<leader>g", group = "Debugger" },
 		})
 		-- Key to dump ALL keymaps at once (the "show me everything" window)
 		vim.keymap.set("n", "<leader>?", function()

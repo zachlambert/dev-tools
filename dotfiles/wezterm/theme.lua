@@ -25,7 +25,7 @@ function exports.apply(config)
 
 	-- config.color_scheme = "vscode"
 
-	config.window_background_opacity = 1.0
+	config.window_background_opacity = 0.95
 	config.font = wezterm.font("DejaVuSansMono")
 	config.font_size = 11
 

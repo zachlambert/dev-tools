@@ -22,6 +22,7 @@ chown $_CONTAINER_USER:$_CONTAINER_USER .zshrc
 rm -r dev-tools
 
 # Install extra useful packages
+# NOTE: May have /usr/bin/lldb-vscode-<version> instead of /usr/bin/lldb-dap-<version>, same thing
 apt update && \
   apt install -y less fzf xclip curl ripgrep gdb lldb clangd && \
   ln -s /usr/bin/lldb-dap-18 /usr/bin/lldb-dap && \
@@ -32,6 +33,8 @@ su $_CONTAINER_USER -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0
 su $_CONTAINER_USER -c 'bash -c "source ~/.bashrc; nvm install node"'
 
 # Install tree-sitter-cli
+# TODO: This version doesn't work on my personal laptop, had to run `cargo install tree-sitter-cli` instead
+# Replace this with the cargo install (which requires installing cargo as well...)
 su $_CONTAINER_USER -c 'bash -c "source ~/.bashrc; npm install -g --allow-scripts=tree-sitter-cli tree-sitter-cli"'
 
 # First run of nvim -> install plugins
