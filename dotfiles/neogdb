@@ -1,2 +1,2 @@
 #!/bin/sh
-lldb-server gdbserver localhost:1234
+lldb-server gdbserver localhost:1234 -- $@

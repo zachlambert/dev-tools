@@ -33,5 +33,15 @@ return {
 			"<cmd>Trouble qflist toggle<cr>",
 			desc = "Quickfix List (Trouble)",
 		},
+		{
+			"]e",
+			"<cmd>Trouble diagnostics next jump=true filter.severity=vim.diagnostic.severity.ERROR<cr>",
+			desc = "Next Error (Trouble)",
+		},
+		{
+			"[e",
+			"<cmd>Trouble diagnostics prev jump=true filter.severity=vim.diagnostic.severity.ERROR<cr>",
+			desc = "Previous Error (Trouble)",
+		},
 	},
 }
