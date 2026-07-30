@@ -24,7 +24,7 @@ rm -r dev-tools
 # Install extra useful packages
 # NOTE: May have /usr/bin/lldb-vscode-<version> instead of /usr/bin/lldb-dap-<version>, same thing
 apt update && \
-  apt install -y less fzf xclip curl ripgrep gdb lldb clangd && \
+  apt install -y less fzf xclip curl ripgrep gdb lldb clangd clang-format && \
   ln -s /usr/bin/lldb-dap-18 /usr/bin/lldb-dap && \
   rm -rf /var/lib/apt/lists/*
 
